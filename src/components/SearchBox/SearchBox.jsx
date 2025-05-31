@@ -16,3 +16,10 @@ export default function SearchBox({inputValue, onChange}) {
     )
     
 }
+
+// import { useSelector, useDispatch } from "react-redux";
+// import { setFilter } from "";
+
+// const dispatch = useDispatch();
+// const storedQuery = useSelector((state) => state.filter.query); - just for using in a CONTROLLED search input
+// const handleQueryChange = newQuery => dispatch(setFilter(newQuery));

@@ -1,7 +1,12 @@
 import css from './SearchBox.module.css'
 import { LuUserRoundSearch } from "react-icons/lu";
+import { useSelector, useDispatch } from "react-redux";
+import { changeFilter } from "../../redux/filtersSlice";
 
-export default function SearchBox({inputValue, onChange}) {
+export default function SearchBox() {
+    const query = useSelector((state) => state.filters.name);
+    const dispatch = useDispatch();
+
     return (
         <div className={css.container}>
             <label htmlFor='searchInput'><LuUserRoundSearch className={css.icon} size="1.5rem"/>Find contacts by name</label>
@@ -9,8 +14,8 @@ export default function SearchBox({inputValue, onChange}) {
                 className={css.input}
                 type='text'
                 id='searchInput'
-                value={inputValue}
-                onChange={(evt)=> onChange(evt.target.value)}
+                value={query}
+                onChange={(evt)=> dispatch(changeFilter(evt.target.value))}
             />
         </div>
     )

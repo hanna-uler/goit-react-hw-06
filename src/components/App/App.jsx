@@ -37,13 +37,11 @@ export default function App() {
       contact.name.toLowerCase().includes(debouncedSearchQuery.toLowerCase()))
   }, [debouncedSearchQuery, contacts]);
 
-
-
   return (
     <div className={css.container}>
       <h1>Phonebook</h1>
       <ContactForm/>
-      <SearchBox inputValue={searchQuery} onChange={setSearchQuery} />
+      <SearchBox/>
       <ContactList deleteContact={deleteContact} contacts={visibleContacts} />
     </div>
 

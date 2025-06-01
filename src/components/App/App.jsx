@@ -23,12 +23,6 @@ export default function App() {
   })
   const [searchQuery, setSearchQuery] = useState("");
   const [debouncedSearchQuery] = useDebounce(searchQuery, 300);
-
-  const addContact = (newContact) => {
-    setContacts((contacts) => {
-      return [...contacts, newContact]
-    })
-  }
   
   const deleteContact = (id) => {
     setContacts(contacts => contacts.filter((contact) => contact.id !== id))
@@ -48,7 +42,7 @@ export default function App() {
   return (
     <div className={css.container}>
       <h1>Phonebook</h1>
-      <ContactForm addContact={addContact}/>
+      <ContactForm/>
       <SearchBox inputValue={searchQuery} onChange={setSearchQuery} />
       <ContactList deleteContact={deleteContact} contacts={visibleContacts} />
     </div>
